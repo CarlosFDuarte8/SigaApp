@@ -93,6 +93,13 @@ export const login = StyleSheet.create({
         textTransform: "uppercase",
         fontSize: 24,
     },
+    textForgot: {
+        color: "#033d60",
+        marginBottom: 30,
+        textAlign: "justify",
+        textTransform: "uppercase",
+        fontSize: 14,
+    },
     logo: {
         height: height * 0.15,
         width: width * 0.625,
