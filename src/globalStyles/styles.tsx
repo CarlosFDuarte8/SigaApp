@@ -1,6 +1,8 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 
-export const buttons = StyleSheet.create({
+const {width, height} = Dimensions.get("screen");
+
+export const grid = StyleSheet.create({
 
 });
 
@@ -58,23 +60,24 @@ export const login = StyleSheet.create({
         flex: 1,
     },
     input: {
-        width: 300,
-        height: 44,
+        width: width * 0.75,
+        height: height * 0.06,
         padding: 10,
-        borderWidth: 1,
-        borderColor: '#ccc',
+        borderWidth: 2,
+        borderColor: '#033d60',
         marginBottom: 20,
+        borderRadius: 10,
     },
     text: {
         color: "#033d60",
         marginBottom: 30,
         textAlign: "justify",
-        fontSize: 30,
+        fontSize: 25,
 
     },
     login: {
-        width: 300,
-        height: 50,
+        width: width * 0.75,
+        height: height  * 0.067,
         padding: 10,
         borderWidth: 1,
         borderColor: '#033d60',
@@ -91,9 +94,9 @@ export const login = StyleSheet.create({
         fontSize: 24,
     },
     logo: {
-        height: 111,
-        width: 219,
-        marginBottom: 20
+        height: height * 0.15,
+        width: width * 0.625,
+        marginBottom: 20,
     }
 });
 
@@ -120,8 +123,6 @@ export const camera = StyleSheet.create({
         color: 'white',
     },
     icon: {
-        // name: 'camera-reverse-outline',
-        // size: 40,
-        color: 'yellow'
+        color: 'yellow',
     }
 });
