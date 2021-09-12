@@ -24,7 +24,7 @@ const menus: menuProps[] = [
   {
     icon: 'account-group',
     title: 'Voluntário',
-    path: 'Login',
+    path: 'Setting',
     libIcon: <MaterialCommunityIcons name="account-group" color={'#033d60'} size={35} />,
   },
   {
@@ -50,57 +50,38 @@ const Home = ({ navigation }: Props) => {
       <Header
         navigation={navigation}
       />
-      <View style={home.body}>
+      {
+        menus.map(({ icon, title, path, libIcon }: menuProps) => {
+          return (
 
-        <View
-        // style={home.subBody}
-        >
-          <TouchableOpacity
-            style={home.buttonGrid}
-            onPress={() => navigation.navigate('Login')}
-          >
-            <View style={home.buttonIcon}>
-              <MaterialCommunityIcons name="cash-multiple" style={home.icon} />
-            </View>
-            <View style={home.buttonTitle}>
+            <View style={home.body}>
 
-              <Text style={home.titleGrid}>
-                Tesouraria
-              </Text>
-            </View>
-          </TouchableOpacity>
+              <View
+              // style={home.subBody}
+              >
 
-          <TouchableOpacity
-            style={home.buttonGrid}
-            onPress={() => navigation.navigate('Setting')}
-          >
-            <View style={home.buttonIcon}>
-              <MaterialCommunityIcons name="account-group" style={home.icon} />
-            </View>
-            <View style={home.buttonTitle}>
-              <Text style={home.titleGrid}>
-                Voluntário
-              </Text>
-            </View>
-          </TouchableOpacity>
+                <TouchableOpacity
+                  style={home.buttonGrid}
+                  // onPress={() => navigation.navigate('Login')}
+                  onPress={() => navigation.navigate(path)}
+                >
+                  <View style={home.buttonIcon}>
+                    <MaterialCommunityIcons name={icon} style={home.icon} />
+                  </View>
+                  <View style={home.buttonTitle}>
 
-          <TouchableOpacity
-            style={home.buttonGrid}
-            onPress={() => navigation.navigate('Setting')}
-          >
-            <View style={home.buttonIcon}>
-              <MaterialCommunityIcons name="package-variant" style={home.icon} />
-            </View>
-            <View style={home.buttonTitle}>
-              <Text style={home.titleGrid}>
-                Produtos Materias
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+                    <Text style={home.titleGrid}>
+                      {title}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
 
+              </View>
 
-      </View>
+            </View>
+          );
+        })
+      }
 
       <View style={{ marginTop: 100, }}>
 
