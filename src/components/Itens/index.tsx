@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity } from "react-native";
+import { List } from 'react-native-paper';
 import { Feather, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import { itensMenu } from '../../globalStyles/styles';
 
@@ -33,8 +34,27 @@ const menus: menuProps[] = [
 
 const Itens = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [expanded, setExpanded] = React.useState(true);
+
+  const handlePress = () => setExpanded(!expanded);
   return (
+    <>
+      <List.Section title="Accordions">
+    {
+        menus.map(({ icon, title, path, libIcon }: menuProps) => {
+          return (
+      <List.Accordion
+        title={title}
+        left={props => <List.Icon {...props} icon={icon} />}>
+        <List.Item title="First item" />
+        <List.Item title="Second item" />
+      </List.Accordion>
+      );
+    })
+  }
+  </List.Section>
     <Pressable>
+      
       {
         menus.map(({ icon, title, path, libIcon }: menuProps) => {
           return (
@@ -56,6 +76,7 @@ const Itens = ({ navigation }) => {
         })
       }
     </Pressable>
+    </>
   );
 };
 

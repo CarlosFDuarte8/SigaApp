@@ -16,23 +16,18 @@ interface menuProps {
 
 const menus: menuProps[] = [
   {
-    icon: 'cash-multiple',
-    title: 'Tesouraria',
-    path: 'Cash',
+    icon: 'book-cross',
+    title: 'Fundo Biblico',
+    path: 'Login',
     libIcon: <MaterialCommunityIcons name='cash-multiple' color={'#033d60'} size={35} />,
   },
   {
-    icon: 'account-group',
-    title: 'Voluntário',
+    icon: 'file-chart',
+    title: 'Relatório',
     path: 'Setting',
     libIcon: <MaterialCommunityIcons name="account-group" color={'#033d60'} size={35} />,
   },
-  {
-    icon: 'package-variant',
-    title: 'Produtos/Matérias',
-    path: 'Product',
-    libIcon: <MaterialCommunityIcons name="package-variant" color={'#033d60'} size={35} />,
-  },
+  
 ];
 
 type TopNavProp = {
@@ -44,7 +39,7 @@ interface Props {
   navigation: StackNavigationProp<TopNavProp, 'Login'>
 }
 
-const Home = ({ navigation }: Props) => {
+const Product = ({ navigation }: Props) => {
   return (
     <View style={home.container}>
       <Header
@@ -94,4 +89,4 @@ const Home = ({ navigation }: Props) => {
 };
 
 
-export default Home;
+export default Product;

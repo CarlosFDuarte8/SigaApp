@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View, Image, TouchableOpacity, StatusBar, Alert, Modal, Pressable, } from 'react-native';
-import { DefaultTheme, Provider as PaperProvider, Toolbar, ToolbarContent } from 'react-native-paper'; // 1.0.1
+import { DefaultTheme, Provider as PaperProvider, Appbar, } from 'react-native-paper'; // 1.0.1
 import { FontAwesome } from '@expo/vector-icons';
 import { header } from '../../globalStyles/styles';
 
@@ -107,7 +107,7 @@ const Header = ({
   return (
     <PaperProvider theme={theme}>
       <View style={header.container}>
-        <Toolbar>
+        <Appbar>
           <StatusBar
             animated
             barStyle="dark-content"
@@ -115,17 +115,17 @@ const Header = ({
             translucent
           />
           <View style={header.containerHeader}>
-              <TouchableOpacity onPress={() => navigation.navigate('Web')}>
-            <Image
-              style={header.logo}
-              source={{
-                uri: 'https://www.congregacaocristanobrasil.org.br/assets/images/logo-ccb-light.png',
-              }}/>
+            <TouchableOpacity onPress={() => navigation.navigate('Web')}>
+              <Image
+                style={header.logo}
+                source={{
+                  uri: 'https://www.congregacaocristanobrasil.org.br/assets/images/logo-ccb-light.png',
+                }} />
             </TouchableOpacity>
           </View>
 
           <View style={header.containerHeader}>
-            <ToolbarContent title='' />
+            <Appbar.Content title='' />
           </View>
 
           <View style={header.containerHeader2}>
@@ -146,7 +146,7 @@ const Header = ({
             </TouchableOpacity>
           </View>
 
-        </Toolbar>
+        </Appbar>
       </View>
     </PaperProvider>
   );
