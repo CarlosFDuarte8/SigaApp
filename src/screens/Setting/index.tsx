@@ -6,6 +6,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { MaterialIcons } from '@expo/vector-icons';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer'
+import Login from './Users';
 
 type TopNavProp = {
     Setting: undefined;
@@ -56,7 +57,7 @@ const Setting = ({ navigation }: Props) => {
                             borderTopLeftRadius: 20,
                             borderTopRightRadius: 20,
                         }}
-                        onPress={() => navigation.navigate('Login')}
+                        onPress={() => navigation.navigate('ListUsers')}
                     >
                         <View style={{
                             backgroundColor: '#f4f5f8',
@@ -448,9 +449,9 @@ const Setting = ({ navigation }: Props) => {
                             </Text>
                         </View>
                     </TouchableOpacity>
-
                 </View>
             </View>
+{/* <Login /> */}
             <View style={{ marginTop: 100, }}>
                 <Footer
                     navigation={navigation}

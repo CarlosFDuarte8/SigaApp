@@ -1,6 +1,7 @@
 export {default as Home } from './Home';
 export {default as Login } from './Login';
 export {default as Setting} from './Setting';
+export {default as ListUsers} from './Setting/Users';
 export {default as Web} from './WebView';
 export {default as Product} from './Product';
 export {default as Cash} from './Cash';

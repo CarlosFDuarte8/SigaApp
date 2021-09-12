@@ -318,6 +318,14 @@ export const itensMenu = StyleSheet.create({
   }
 });
 
+export const listUsers = StyleSheet.create({
+  container: {
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    flex: 1,
+  },
+})
+
 export const camera = StyleSheet.create({
   container: {
     flex: 1,
