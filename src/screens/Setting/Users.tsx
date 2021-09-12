@@ -34,7 +34,7 @@ const UserTitles: UserTitleProps[] = [
 
 const optionsPerPage = [2, 3, 4];
 
-const ListUsers = () => {
+const ListUsers = ({navigation}) => {
   const [users, setUsers] = useState<UserProps[]>([]);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const ListUsers = () => {
   return (
     <View style={listUsers.container} >
       <Header
-      //  navigation={navigation} 
+       navigation={navigation} 
       />
 
     <DataTable style={{ flex: 1.5, marginTop: 0 }}>
@@ -113,7 +113,7 @@ const ListUsers = () => {
         optionsLabel={'Rows per page'}
       />
     </DataTable>
-    <Footer />
+    <Footer navigation={navigation} />
     </View>
   );
 

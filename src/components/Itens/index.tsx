@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity } from "react-native";
 import { List } from 'react-native-paper';
 import { Feather, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
-import { itensMenu } from '../../globalStyles/styles';
+import { itensMenu, menu } from '../../globalStyles/styles';
 
 interface menuProps {
   icon: string,
@@ -39,11 +39,12 @@ const Itens = ({ navigation }) => {
   const handlePress = () => setExpanded(!expanded);
   return (
     <>
-      <List.Section title="Accordions">
+      <List.Section  style={itensMenu.menuItem} >
     {
         menus.map(({ icon, title, path, libIcon }: menuProps) => {
           return (
       <List.Accordion
+      style={itensMenu.titleView}
         title={title}
         left={props => <List.Icon {...props} icon={icon} />}>
         <List.Item title="First item" />
@@ -53,29 +54,7 @@ const Itens = ({ navigation }) => {
     })
   }
   </List.Section>
-    <Pressable>
-      
-      {
-        menus.map(({ icon, title, path, libIcon }: menuProps) => {
-          return (
-            <TouchableOpacity
-              style={itensMenu.buttonItens}
-              // onPress={() => navigation.navigate(path)}
-            >
-              <View style={itensMenu.iconView}>
-                {/* {libIcon} */}
-                <MaterialCommunityIcons name={icon} style={itensMenu.icon} />
-              </View>
-              <View style={itensMenu.titleView}>
-                <Text style={itensMenu.title}>
-                  {title}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          );
-        })
-      }
-    </Pressable>
+  
     </>
   );
 };

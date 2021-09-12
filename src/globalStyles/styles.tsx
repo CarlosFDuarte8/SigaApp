@@ -288,8 +288,15 @@ export const itensMenu = StyleSheet.create({
     borderBottomRightRadius: 0,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    flexDirection: "row",
+    flexDirection: "column",
     marginLeft: 35,
+  },
+  menuItem: {
+    marginBottom: 5,
+    textAlign: "center",
+    fontSize: 28,
+    width: width * 0.75,
+    // marginRight: 60
   },
   iconView: {
     alignItems: 'center',
@@ -302,7 +309,7 @@ export const itensMenu = StyleSheet.create({
   titleView: {
     justifyContent: 'center',
     height: 60,
-    width: 220,
+    width: width * 0.75,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 20,
   },
