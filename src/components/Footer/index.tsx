@@ -1,8 +1,10 @@
 import { useTheme } from '@react-navigation/native';
 import * as React from 'react';
-import { SafeAreaView, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
+import { SafeAreaView, TouchableOpacity, View, Modal, Pressable, Alert, Text } from 'react-native';
 import { Feather, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
-import { footer } from '../../globalStyles/styles';
+import { footer, menu } from '../../globalStyles/styles';
+import Itens from '../Itens';
 
 const Footer = ({
   navigation,
@@ -16,14 +18,44 @@ const Footer = ({
   const setMenu = () => {
     navigation.navigate('Menu')
   }
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <SafeAreaView >
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={menu.modal}>
+          <View style={menu.menuModal}>
+            <View style={menu.menuMenu}>
+              <Text style={menu.menuModalTitle}>Menu</Text>
+              <Pressable
+                style={menu.menuButtonFechar}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Feather name="x" color={'#000'} size={32} />
+              </Pressable>
+            </View>
+            <Itens />
+          </View>
+        </View>
+
+      </Modal>
+
       <View
         style={footer.container}>
         <View
           style={footer.footerContainer}>
-          <TouchableOpacity onPress={setMenu}>
+          <TouchableOpacity
+            // onPress={setMenu}
+            onPress={() => setModalVisible(true)}
+          >
             <SimpleLineIcons name="menu" color={'#033d60'} size={24} />
           </TouchableOpacity>
         </View>
