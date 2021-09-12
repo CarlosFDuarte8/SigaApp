@@ -1,4 +1,5 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
+import Constants from 'expo-constants';
 
 const { width, height } = Dimensions.get("screen");
 
@@ -25,21 +26,21 @@ export const home = StyleSheet.create({
   buttonGrid: {
     backgroundColor: '#fff',
     alignItems: 'center',
-    height: 100,
-    width: 100,
+    height: height * 0.105,
+    width: width * 0.28,
     justifyContent: 'center',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     marginBottom: 10,
-    marginVertical: 50
+    marginVertical: 30
   },
   buttonIcon: {
     backgroundColor: '#f4f5f8',
     alignItems: 'center',
-    height: 85,
-    width: 120,
+    height: height * 0.09,
+    width: width * 0.28,
     justifyContent: 'center',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -48,8 +49,8 @@ export const home = StyleSheet.create({
     backgroundColor: '#ccc',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 40,
-    width: 120,
+    height: height * 0.05,
+    width: width * 0.28,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
@@ -277,4 +278,11 @@ export const camera = StyleSheet.create({
   icon: {
     color: 'yellow',
   }
+});
+
+export const web = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
 });

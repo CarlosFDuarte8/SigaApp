@@ -1,21 +1,30 @@
 import * as React from 'react';
 import { WebView } from 'react-native-webview';
-import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { web } from '../../globalStyles/styles';
+import Footer from '../../components/Footer';
 
-const Web = () =>{
+type TopNavProp = {
+  Login: undefined;
+  Setting: undefined;
+};
+
+interface Props {
+  navigation: StackNavigationProp<TopNavProp, 'Login'>
+}
+
+const Web = ({ navigation }: Props) =>{
   return (
+    <>
     <WebView 
-      style={styles.container}
+      style={web.container}
       source={{ uri: 'https://www.congregacaocristanobrasil.org.br/' }}
     />
+    <Footer 
+    navigation={navigation}
+    />
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: Constants.statusBarHeight,
-  },
-});
  export default Web;
