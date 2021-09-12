@@ -2,8 +2,66 @@ import { StyleSheet, Platform, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get("screen");
 
-export const grid = StyleSheet.create({
-
+export const home = StyleSheet.create({
+  container: {
+    justifyContent: 'flex-start',
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  body: {
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    marginLeft: width * 0.05
+  },
+  subBody: {
+    // backgroundColor: 'blue',
+    // flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginLeft: 25,
+    justifyContent: 'center',
+    // height: 100
+  },
+  buttonGrid: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    height: 100,
+    width: 100,
+    justifyContent: 'center',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    marginBottom: 10,
+    marginVertical: 50
+  },
+  buttonIcon: {
+    backgroundColor: '#f4f5f8',
+    alignItems: 'center',
+    height: 85,
+    width: 120,
+    justifyContent: 'center',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  buttonTitle: {
+    backgroundColor: '#ccc',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 40,
+    width: 120,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  titleGrid: {
+    color: '#033d60',
+    alignItems: 'center',
+    textAlign: "center",
+  },
+  icon: {
+    color: '#033d60',
+    fontSize: 55,
+  }
 });
 
 export const header = StyleSheet.create({
@@ -188,8 +246,8 @@ export const itensMenu = StyleSheet.create({
     fontSize: 20,
     textAlign: "left",
   },
-  icon:{
-    color:'#033d60',
+  icon: {
+    color: '#033d60',
     fontSize: 35,
   }
 });
