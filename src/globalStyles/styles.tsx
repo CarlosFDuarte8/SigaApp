@@ -132,16 +132,18 @@ export const cash = StyleSheet.create({
 
 export const header = StyleSheet.create({
   container: {
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     top: '10%',
     flex: 1,
-    height: 200,
+    height: 10,
+    width: width*1,
+    position: "absolute"
   },
   containerHeader: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 5
+    // paddingTop: 5
   },
   containerHeader2: {
     flex: 0.5,
@@ -330,6 +332,13 @@ export const listUsers = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     flex: 1,
+    // position: "absolute"
+  },
+  containers: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flex: 2,
+    position: "relative"
   },
 })
 
