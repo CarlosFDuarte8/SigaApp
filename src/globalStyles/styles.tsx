@@ -154,6 +154,15 @@ export const header = StyleSheet.create({
     height: 21,
     width: 41
   },
+  menuUser: {
+    backgroundColor: '#fff',
+    padding: 30,
+    position: "absolute",
+    right: 0,
+    bottom: 2,
+    margin: 5,
+    top: -2
+  }
 });
 
 export const footer = StyleSheet.create({
