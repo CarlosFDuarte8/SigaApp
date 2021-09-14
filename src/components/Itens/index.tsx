@@ -1,61 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View, TouchableOpacity } from "react-native";
+import { List } from 'react-native-paper';
+import { api } from "../../services";
 import { Feather, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
-import { itensMenu } from '../../globalStyles/styles';
+import { itensMenu, menu } from '../../globalStyles/styles';
 
 interface menuProps {
   icon: string,
   title: string,
   path: string,
-  libIcon: any,
+  subTitle1: string,
+  subTitle2: string,
 }
-
-const menus: menuProps[] = [
-  {
-    icon: 'cash-multiple',
-    title: 'Tesouraria',
-    path: 'Login',
-    libIcon: <MaterialCommunityIcons name='cash-multiple' color={'#033d60'} size={35} />,
-  },
-  {
-    icon: 'account-group',
-    title: 'Voluntário',
-    path: 'Login',
-    libIcon: <MaterialCommunityIcons name="account-group" color={'#033d60'} size={35} />,
-  },
-  {
-    icon: 'package-variant',
-    title: 'Produtos/Matérias',
-    path: 'Login',
-    libIcon: <MaterialCommunityIcons name="package-variant" color={'#033d60'} size={35} />,
-  },
-];
 
 const Itens = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [expanded, setExpanded] = React.useState(true);
+
+  const [menus, setMenus] = useState<menuProps[]>([]);
+
+  useEffect(() => {
+    api.get('/api/menu/menus/').then((response) => {
+      setMenus(response.data);
+      console.log('API dados==>', response.data);
+    })
+  }, []);
+
+  const handlePress = () => setExpanded(!expanded);
   return (
-    <Pressable>
-      {
-        menus.map(({ icon, title, path, libIcon }: menuProps) => {
-          return (
-            <TouchableOpacity
-              style={itensMenu.buttonItens}
-              // onPress={() => navigation.navigate(path)}
-            >
-              <View style={itensMenu.iconView}>
-                {/* {libIcon} */}
-                <MaterialCommunityIcons name={icon} style={itensMenu.icon} />
-              </View>
-              <View style={itensMenu.titleView}>
-                <Text style={itensMenu.title}>
-                  {title}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          );
-        })
-      }
-    </Pressable>
+    <>
+      <List.Section style={itensMenu.menuItem} >
+        {
+          menus.map(({ icon, title, path, subTitle1, subTitle2 }: menuProps) => {
+            return (
+              <List.Accordion
+                style={itensMenu.titleView}
+                title={title}
+                left={props => <List.Icon {...props} icon={icon} />}>
+                <List.Item title={subTitle1} />
+                <List.Item title={subTitle2} />
+              </List.Accordion>
+            );
+          })
+        }
+      </List.Section>
+
+    </>
   );
 };
 

@@ -1,0 +1,12 @@
+{
+  "nextId": 2,
+  "users": [
+    {
+      "id": 1,
+      "name": "Carlos Duarte",
+      "login": "C.Duarte",
+      "password": "Abcarlos*2808*",
+      "situation": true
+    }    
+  ]
+}
