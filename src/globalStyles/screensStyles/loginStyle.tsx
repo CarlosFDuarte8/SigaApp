@@ -3,7 +3,7 @@ import Constants from 'expo-constants';
 
 const { width, height } = Dimensions.get("screen");
 
-export const login = StyleSheet.create({
+export const loginStyle = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',

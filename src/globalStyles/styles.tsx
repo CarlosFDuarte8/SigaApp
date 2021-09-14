@@ -1,7 +1,7 @@
 // Styles Screens
 export {cash} from './screensStyles/cashStyle';
 export {home} from './screensStyles/homeStyle';
-export {login}from './screensStyles/loginStyle';
+export {loginStyle}from './screensStyles/loginStyle';
 
 // Styles Components
 export {camera} from './componentsStyles/cameraStyle';

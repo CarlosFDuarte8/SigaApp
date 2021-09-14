@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, TextInput, View, Text, Image, TouchableOpacity, } from 'react-native';
-import { login } from '../../globalStyles/styles';
+import { loginStyle } from '../../globalStyles/styles';
 
 export default class Login extends Component {
   constructor(props: any) {
@@ -73,33 +73,33 @@ export default class Login extends Component {
     const titleForgotpassword = 'Esqueceu a senha?';
 
     return (
-      <View style={login.container}>
+      <View style={loginStyle.container}>
         <Image
-          style={login.logo}
+          style={loginStyle.logo}
           source={{
             uri: urllogo,
           }}
         />
-        <Text style={login.text}>{title}</Text>
+        <Text style={loginStyle.text}>{title}</Text>
         <TextInput
           value={this.state.login}
           onChangeText={(login) => this.setState({ login })}
           placeholder={titleUser}
           secureTextEntry={false}
-          style={login.input}
+          style={loginStyle.input}
         />
         <TextInput
           value={this.state.password}
           onChangeText={(password) => this.setState({ password })}
           placeholder={titlePassword}
           secureTextEntry={true}
-          style={login.input}
+          style={loginStyle.input}
         />
-        <TouchableOpacity style={login.login} onPress={this.onLogin} >
-          <Text style={login.textLogin}>{titleButton}</Text>
+        <TouchableOpacity style={loginStyle.login} onPress={this.onLogin} >
+          <Text style={loginStyle.textLogin}>{titleButton}</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.onForgot} >
-        <Text style={login.textForgot}>{titleForgotpassword}</Text>
+        <Text style={loginStyle.textForgot}>{titleForgotpassword}</Text>
         </TouchableOpacity>
       </View>
     );
