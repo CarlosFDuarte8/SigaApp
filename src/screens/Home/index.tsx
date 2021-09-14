@@ -8,6 +8,7 @@ import Footer from '../../components/Footer';
 import { home } from '../../globalStyles/styles';
 
 interface menuProps {
+  id: number,
   icon: string,
   title: string,
   path: string,
@@ -16,18 +17,21 @@ interface menuProps {
 
 const menus: menuProps[] = [
   {
+    id: 1,
     icon: 'cash-multiple',
     title: 'Tesouraria',
     path: 'Cash',
     libIcon: <MaterialCommunityIcons name='cash-multiple' color={'#033d60'} size={35} />,
   },
   {
+    id: 2,
     icon: 'account-group',
     title: 'Voluntário',
     path: 'Setting',
     libIcon: <MaterialCommunityIcons name="account-group" color={'#033d60'} size={35} />,
   },
-  {
+  { 
+    id: 3,
     icon: 'package-variant',
     title: 'Produtos/Matérias',
     path: 'Product',
@@ -51,12 +55,12 @@ const Home = ({ navigation }: Props) => {
         navigation={navigation}
       />
       {
-        menus.map(({ icon, title, path, libIcon }: menuProps) => {
+        menus.map(({id, icon, title, path, libIcon }: menuProps) => {
           return (
 
             <View style={home.body}>
 
-              <View
+              <View key={id}
               // style={home.subBody}
               >
 
