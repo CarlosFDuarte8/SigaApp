@@ -65,7 +65,6 @@ export default class Login extends Component {
   }
 
   render() {
-    const urllogo = 'https://www.congregacaocristanobrasil.org.br/assets/images/logo-ccb-light.png';
     const title = 'Entre com suas Credencias!';
     const titleUser = 'Usuário';
     const titlePassword = 'Senha';
@@ -76,9 +75,7 @@ export default class Login extends Component {
       <View style={loginStyle.container}>
         <Image
           style={loginStyle.logo}
-          source={{
-            uri: urllogo,
-          }}
+          source={require('../../assets/logo.png')}
         />
         <Text style={loginStyle.text}>{title}</Text>
         <TextInput
