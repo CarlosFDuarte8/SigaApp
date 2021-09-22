@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
+import { Card, Avatar, IconButton, Divider } from 'react-native-paper';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Table, Row, Rows } from 'react-native-table-component';
 import ExampleOne from './Table';
@@ -58,9 +58,9 @@ const menus: menuProps[] = [
     libIcon: <MaterialCommunityIcons name='cash-multiple' color={'#033d60'} size={35} />,
   },
   {
-    icon: 'newspaper-plus',
+    icon: 'filter-outline',
     title: 'Filtro',
-    path: 'Login',
+    path: 'Home',
     libIcon: <MaterialCommunityIcons name='cash-multiple' color={'#033d60'} size={35} />,
   },
 
@@ -78,49 +78,37 @@ interface Props {
 const Cash = ({ navigation }: Props) => {
 
   return (
-    <View style={cash.container}>
+    <>
       <Header
         navigation={navigation}
       />
-      <ExampleOne />
+      <View style={cash.container}>
 
-      {
-        menus.map(({ icon, title, path, libIcon }: menuProps) => {
-          return (
-            <View style={cash.subBody}>
-              <TouchableOpacity
-                style={cash.buttonGrid}
-                // onPress={() => navigation.navigate('Login')}
-                onPress={() => navigation.navigate(path)}
-              >
-                <View
-                  style={cash.body}
-                >
-                  <View style={cash.buttonIcon}>
-                    <MaterialCommunityIcons name={icon} style={cash.icon} />
-                  </View>
-                  <View style={cash.buttonTitle}>
-                    <Text style={cash.titleGrid}>
-                      {title}
-                    </Text>
-                  </View>
-                </View>
+        {
+          menus.map(({ icon, title, path, libIcon }: menuProps) => {
+            return (
+              <>
+              <TouchableOpacity style={cash.subBody} onPress={() => navigation.navigate(path)}>
+                <Card.Title
+                  title={title}
+                  left={(props) => <Avatar.Icon {...props} icon={icon} />}
+                  right={(props) => <IconButton {...props} icon="chevron-right"  />}
+                />
               </TouchableOpacity>
+              <Divider />
+              </>
+            );
+          })
+        }
+        <Divider />
 
-            </View>
-          );
-        })
-      }
+        <ExampleOne />
 
-
-
-      <View style={{ marginTop: 100, }}>
-
-        <Footer
-          navigation={navigation}
-        />
       </View>
-    </View>
+      <Footer
+        navigation={navigation}
+      />
+    </>
   );
 };
 

@@ -11,13 +11,12 @@ export const cash = StyleSheet.create({
   },
   body: {
     justifyContent: 'flex-start',
-    flexDirection: 'column',
+    
     marginLeft: width * 0.05
   },
   subBody: {
     // backgroundColor: 'blue',
     // flex: 1,
-    flexDirection: 'column',
     alignItems: 'flex-start',
     marginLeft: 25,
     justifyContent: 'center',
