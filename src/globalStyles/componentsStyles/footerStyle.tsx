@@ -14,6 +14,10 @@ export const footer = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 5,
     marginBottom: Platform.OS === 'android' ? 10 : 0,
+    position: 'absolute',
+    margin: 16,
+    right: 0,
+    bottom: 0
   },
   footerContainer: {
     flex: 1,

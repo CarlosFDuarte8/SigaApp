@@ -5,11 +5,11 @@ const { width, height } = Dimensions.get("screen");
 
 export const header = StyleSheet.create({
   container: {
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     top: '10%',
     flex: 1,
-    height: 10,
-    width: width*1,
+    // height: 10,
+    width: width * 1,
     position: "absolute"
   },
   containerHeader: {
@@ -24,8 +24,8 @@ export const header = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    height: 21,
-    width: 41
+    height: height * 0.05,
+    width: width * 0.2
   },
   menuUser: {
     backgroundColor: '#fff',
