@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "siga",
+    "name": "Siga",
     "slug": "snack-e9224e63-ac73-4dee-9148-d624399b286f",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFF"
-      }
+      },
+      "package": "siga.duarte"
     },
     "web": {
       "favicon": "./assets/favicon.png"
