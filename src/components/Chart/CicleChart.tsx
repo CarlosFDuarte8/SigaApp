@@ -1,28 +1,6 @@
-// 7 Type of Graph using React Native Chart Kit
-// https://aboutreact.com/react-native-chart-kit/
-
-// import React in our code
 import React from 'react';
-
-// import all the components we are going to use
-import {
-  SafeAreaView,
-  Text,
-  View,
-  StyleSheet,
-  Dimensions,
-  ScrollView,
-} from 'react-native';
-
-//import React Native chart Kit for different kind of Chart
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from 'react-native-chart-kit';
+import {Text, StyleSheet, Dimensions} from 'react-native';
+import {PieChart} from 'react-native-chart-kit';
 
 const MyPieChart = () => {
   return (
@@ -59,7 +37,7 @@ const MyPieChart = () => {
             legendFontSize: 12,
           },
         ]}
-        width={Dimensions.get('window').width - 20}
+        width={Dimensions.get('window').width - 16}
         height={220}
         chartConfig={{
           backgroundColor: '#1cc910',
@@ -75,9 +53,9 @@ const MyPieChart = () => {
           marginVertical: 8,
           borderRadius: 16,
         }}
-        accessor="Orçamento"
+        accessor="population"
         backgroundColor="transparent"
-        paddingLeft="5"
+        paddingLeft="15"
         absolute //for the absolute number remove if you want percentage
       />
     </>
