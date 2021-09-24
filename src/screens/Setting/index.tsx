@@ -19,18 +19,17 @@ interface Props {
 
 const Setting = ({ navigation }: Props) => {
     return (
+      <>
+          <Header
+              navigation={navigation}
+          />
         <View style={{
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
+            alignItems: 'center',
             flex: 1,
             backgroundColor: 'white',
         }}>
-            <Header
-                navigation={navigation}
-            />
             <View style={{
-                justifyContent: 'flex-start',
-                // flex: 1,
-                // backgroundColor: 'white',
                 flexDirection: 'row'
             }}>
                 {/* 1 */}
@@ -142,7 +141,7 @@ const Setting = ({ navigation }: Props) => {
                             marginBottom: 10,
                             marginVertical: 50
                         }}
-                        onPress={() => navigation.navigate('Setting')}
+                        onPress={() => navigation.navigate('AppVersion')}
                     >
                         <View style={{
                             backgroundColor: '#f4f5f8',
@@ -451,13 +450,12 @@ const Setting = ({ navigation }: Props) => {
                     </TouchableOpacity>
                 </View>
             </View>
-{/* <Login /> */}
-            <View style={{ marginTop: 100, }}>
+            
+        </View>
                 <Footer
                     navigation={navigation}
                 />
-            </View>
-        </View>
+        </>
     );
 };
 
