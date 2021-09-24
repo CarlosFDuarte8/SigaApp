@@ -37,8 +37,8 @@ const Itens = ({ navigation }) => {
                 style={itensMenu.titleView}
                 title={title}
                 left={props => <List.Icon {...props} icon={icon} />}>
-                <List.Item title={subTitle1} />
-                <List.Item title={subTitle2} />
+                <List.Item title={subTitle1} onPress={() => console.log('Press 1', path)}/>
+                <List.Item title={subTitle2} onPress={() => console.log('Press 2', path)}/>
               </List.Accordion>
             );
           })
