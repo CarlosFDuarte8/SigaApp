@@ -1,116 +1,132 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, TouchableOpacity, Dimensions } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { Divider } from 'react-native-paper';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import MyPieChart from '../../components/Chart/CicleChart';
+import MyBarChart from '../../components/Chart/BarChart';
+import MyLineChart from '../../components/Chart/LineChart';
 
-interface homeItens {
-  id: string,
-  title: string,
-  subTi: string,
-  iconn: string
-}
+// interface homeItens {
+//   id: string,
+//   title: string,
+//   subTi: string,
+//   iconn: string
+// }
 
-const DATA = [
-  {
-    id: '1',
-    title: 'Ambiente de aprendizagem',
-    subTi: 'Tutorias, Manuais...',
-    iconn: 'school',
-    path: 'Learnings',
-  },
-  {
-    id: '2',
-    title: 'Tesoraria',
-    subTi: 'Deposito, Fechamento, Relatórios...',
-    iconn: 'cash-multiple',
-    path: 'Cash',
-  },
-  {
-    id: '3',
-    title: 'Mês de trabalho',
-    subTi: 'Setembro de 2021',
-    iconn: 'calendar',
-    path: 'Works',
-  },
-  {
-    id: '4',
-    title: 'Vonluntários',
-    subTi: 'Apontamentos & Cadastro',
-    iconn: 'account-group-outline',
-    path: 'Volunteers',
-  },
-  {
-    id: '5',
-    title: 'Materias & Produtos',
-    subTi: 'Estoque & Relatórios',
-    iconn: 'package-variant',
-    path: 'Product',
-  },
-  {
-    id: '6',
-    title: 'Suporte',
-    subTi: 'Iniciar um novo chat',
-    iconn: 'chat-plus-outline',
-    path: 'Suport',
-  },
-  {
-    id: '7',
-    title: 'Informações',
-    subTi: 'Versão do app...',
-    iconn: 'information-outline',
-    path: 'Info',
-  },
-];
+// const DATA = [
+//   {
+//     id: '1',
+//     title: 'Ambiente de aprendizagem',
+//     subTi: 'Tutorias, Manuais...',
+//     iconn: 'school',
+//     path: 'Learnings',
+//   },
+//   {
+//     id: '2',
+//     title: 'Tesoraria',
+//     subTi: 'Deposito, Fechamento, Relatórios...',
+//     iconn: 'cash-multiple',
+//     path: 'Cash',
+//   },
+//   {
+//     id: '3',
+//     title: 'Mês de trabalho',
+//     subTi: 'Setembro de 2021',
+//     iconn: 'calendar',
+//     path: 'Works',
+//   },
+//   {
+//     id: '4',
+//     title: 'Vonluntários',
+//     subTi: 'Apontamentos & Cadastro',
+//     iconn: 'account-group-outline',
+//     path: 'Volunteers',
+//   },
+//   {
+//     id: '5',
+//     title: 'Materias & Produtos',
+//     subTi: 'Estoque & Relatórios',
+//     iconn: 'package-variant',
+//     path: 'Product',
+//   },
+//   {
+//     id: '6',
+//     title: 'Suporte',
+//     subTi: 'Iniciar um novo chat',
+//     iconn: 'chat-plus-outline',
+//     path: 'Suport',
+//   },
+//   {
+//     id: '7',
+//     title: 'Informações',
+//     subTi: 'Versão do app...',
+//     iconn: 'information-outline',
+//     path: 'Info',
+//   },
+// ];
 
-const Item = ({ title, iconn, subTi, path }) => (
-  <>
-  <View style={styles.item}>
-    <TouchableOpacity style={styles.buttonTitle} onPress={() => console.log('Press texto', path)}>
-      <Text style={styles.title}>  {title}</Text>
-      <Text style={styles.subTitle}>  {subTi}</Text>
-    <TouchableOpacity style={styles.iconS} onPress={() => console.log('Press icon', path)}>
-      <MaterialCommunityIcons name={iconn} size={54} color="#033d60" />
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.dots} onPress={() => console.log('Press arrow', path)}>
-      <MaterialCommunityIcons name="chevron-right" size={34} color="#033d60" />
-    </TouchableOpacity>
-    </TouchableOpacity>
-  </View>
-    <Divider/>
-    </>
-);
+// const Item = ({ title, iconn, subTi, path }) => (
+//   <>
+//     <View style={styles.item}>
+//       <TouchableOpacity style={styles.buttonTitle} onPress={() => console.log('Press texto', path)}>
+//         <Text style={styles.title}>  {title}</Text>
+//         <Text style={styles.subTitle}>  {subTi}</Text>
+//         <TouchableOpacity style={styles.iconS} onPress={() => console.log('Press icon', path)}>
+//           <MaterialCommunityIcons name={iconn} size={54} color="#033d60" />
+//         </TouchableOpacity>
+//         <TouchableOpacity style={styles.dots} onPress={() => console.log('Press arrow', path)}>
+//           <MaterialCommunityIcons name="chevron-right" size={34} color="#033d60" />
+//         </TouchableOpacity>
+//       </TouchableOpacity>
+//     </View>
+//     <Divider />
+//   </>
+// );
 
 type TopNavProp = {
   Login: undefined;
-  Setting: undefined;
+  Home: undefined;
 };
 
 interface Props {
-  navigation: StackNavigationProp<TopNavProp, 'Setting'>
+  navigation: StackNavigationProp<TopNavProp, 'Home'>
 }
 
 const Home = ({ navigation }: Props) => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} iconn={item.iconn} subTi={item.subTi} path={item.path}/>
-  );
+  // const renderItem = ({ item }) => (
+  //   <Item title={item.title} iconn={item.iconn} subTi={item.subTi} path={item.path} />
+  // );
 
   return (
     <>
-      <Header
-        navigation={navigation}
-      />
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        >
+      <Header />
 
-        </FlatList>
+      <SafeAreaView style={styles.container}>
+        <ScrollView>
+          <View style={{
+            flex: 1.5,
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 1,
+          }}>
+            <MyLineChart />
+            <MyPieChart />
+            <MyBarChart />
+          </View>
+          {/* <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          >
+
+          </FlatList> */}
+        </ScrollView>
       </SafeAreaView>
+
       <Footer
         navigation={navigation}
       />
@@ -128,7 +144,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: height * 0.05,
     marginVertical: 0,
-    marginHorizontal:0,
+    marginHorizontal: 0,
     borderRadius: 5,
     flexDirection: 'row'
   },
