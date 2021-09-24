@@ -50,6 +50,16 @@ export const loginStyle = StyleSheet.create({
     textTransform: "uppercase",
     fontSize: 14,
   },
+  versao: {
+    color: "#033d60",
+    // marginBottom: 20,
+    textAlign: "justify",
+    // textTransform: "uppercase",
+    fontSize: 12,
+    // margin: 5,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
   logo: {
     height: height * 0.15,
     width: width * 0.625,
