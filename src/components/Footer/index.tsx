@@ -1,7 +1,7 @@
 import { useTheme } from '@react-navigation/native';
 import * as React from 'react';
 import { useState } from 'react';
-import { SafeAreaView, TouchableOpacity, View, Modal, Pressable, Alert, Text } from 'react-native';
+import { SafeAreaView, TouchableOpacity, View, Modal, Pressable, Alert, Text, } from 'react-native';
 import { Feather, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import { footer, menu } from '../../globalStyles/styles';
 import Itens from '../Itens';
@@ -32,18 +32,19 @@ const Footer = ({
         }}
       >
         <View style={menu.modal}>
-          <View style={menu.menuModal}>
-            <View style={menu.menuMenu}>
-              <Text style={menu.menuModalTitle}>Menu</Text>
-              <Pressable
-                style={menu.menuButtonFechar}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Feather name="x" color={'#000'} size={32} />
-              </Pressable>
+          <Pressable
+            style={menu.menuButtonFechar}
+            onPress={() => setModalVisible(!modalVisible)}
+          >
+            <View style={menu.menuModal}>
+              <View style={menu.menuMenu}>
+                <Text style={menu.menuModalTitle}>Menu</Text>
+                {/* <Feather name="x" color={'#000'} size={32} /> */}
+              </View>
+              {/* <ActivityIndicator size="large" color="#00ff00" /> */}
+              <Itens />
             </View>
-            <Itens />
-          </View>
+          </Pressable>
         </View>
 
       </Modal>

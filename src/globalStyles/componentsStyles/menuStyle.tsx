@@ -2,21 +2,24 @@ import { StyleSheet, Platform, Dimensions } from "react-native";
 import Constants from 'expo-constants';
 
 const { width, height } = Dimensions.get("screen");
+const superPositionOpacityFactor = '77';
+
+const scale = width / 320;
 
 export const menu = StyleSheet.create({
   modal: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 2,
-    // backgroundColor: "#fff",
-    width: '75%'
+    marginTop: 0,
+    backgroundColor: "#000000" + superPositionOpacityFactor,
+    width: width * 1
   },
   menuModal: {
     // margin: 20,
-    backgroundColor: "#fff",
-    borderRadius: 2,
-    padding: 35,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 5,
+    // padding: 55,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -25,19 +28,19 @@ export const menu = StyleSheet.create({
     },
     shadowOpacity: 0.5,
     shadowRadius: 1,
-    elevation: 5,
+    elevation: 10,
     height: '95%',
-    width: '100%',
-    marginLeft: 10
+    width: width * 0.8,
+    marginRight: width * 0.3
   },
   menuMenu: {
     flexDirection: "row",
-    marginStart: width * 0.2,
+    marginStart: width * 0.0,
   },
   menuModalTitle: {
-    marginBottom: 35,
+    marginBottom: 10,
     textAlign: "center",
-    fontSize: 28,
+    fontSize: 28 * scale,
     // marginRight: 60
   },
   menuButtonFechar: {

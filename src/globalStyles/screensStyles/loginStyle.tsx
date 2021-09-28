@@ -2,6 +2,7 @@ import { StyleSheet, Platform, Dimensions } from "react-native";
 import Constants from 'expo-constants';
 
 const { width, height } = Dimensions.get("screen");
+const scale = width / 320;
 
 export const loginStyle = StyleSheet.create({
   container: {
@@ -22,33 +23,34 @@ export const loginStyle = StyleSheet.create({
     color: "#033d60",
     marginBottom: 30,
     textAlign: "justify",
-    fontSize: 25,
+    fontSize: 18 * scale,
 
   },
   login: {
     width: width * 0.75,
-    height: height * 0.067,
+    height: height * 0.07,
     padding: 10,
     borderWidth: 1,
     borderColor: '#033d60',
     backgroundColor: '#033d60',
     marginBottom: 20,
     alignItems: 'center',
+    justifyContent: 'space-around',
     borderRadius: 10,
   },
   textLogin: {
     color: "#ccc",
-    marginBottom: 30,
-    textAlign: "justify",
+    marginBottom: 0,
+    textAlign: "center",
     textTransform: "uppercase",
-    fontSize: 24,
+    fontSize: 18 * scale,
   },
   textForgot: {
     color: "#033d60",
     marginBottom: 30,
     textAlign: "justify",
     textTransform: "uppercase",
-    fontSize: 14,
+    fontSize: 14 * scale,
   },
   versao: {
     color: "#033d60",
