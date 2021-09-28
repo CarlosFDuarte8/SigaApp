@@ -4,9 +4,7 @@ import Constants from 'expo-constants';
 const { width, height } = Dimensions.get("screen");
 const superPositionOpacityFactor = '77';
 
-const scale = width / 320;
-
-export const menu = StyleSheet.create({
+export const modal = StyleSheet.create({
   modal: {
     flex: 1,
     justifyContent: "center",
@@ -29,18 +27,24 @@ export const menu = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 1,
     elevation: 10,
-    height: '95%',
-    width: width * 0.8,
-    marginRight: width * 0.3
+    height: height * 0.7,
+    width: width * 0.9,
+    marginRight: 0
   },
   menuMenu: {
     flexDirection: "row",
-    marginStart: width * 0.0,
+    marginStart: width * 0.6,
+    marginTop: height * 0.02,
+  },
+  fecharModal: {
+    flexDirection: "row",
+    marginStart: width * 0.6,
+    marginTop: height * 0.02,
   },
   menuModalTitle: {
-    marginBottom: 10,
+    marginBottom: 35,
     textAlign: "center",
-    fontSize: 28 * scale,
+    fontSize: 28,
     // marginRight: 60
   },
   menuButtonFechar: {

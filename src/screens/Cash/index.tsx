@@ -1,13 +1,13 @@
-import React from 'react';
-import { Button, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import React, {useState} from 'react';
+import { Button, Text, View, TouchableOpacity, TextInput, Modal, Pressable, Alert, } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Table, Row, Rows } from 'react-native-table-component';
+import { Card, Avatar, IconButton, Divider } from 'react-native-paper';
+import { Feather, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import ExampleOne from './Table';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { cash } from '../../globalStyles/styles';
+import { cash, modal } from '../../globalStyles/styles';
+import FormUser from '../Setting/User/FormUser';
 
 
 interface menuProps {
@@ -58,69 +58,84 @@ const menus: menuProps[] = [
     libIcon: <MaterialCommunityIcons name='cash-multiple' color={'#033d60'} size={35} />,
   },
   {
-    icon: 'newspaper-plus',
+    icon: 'filter-outline',
     title: 'Filtro',
-    path: 'Login',
+    path: 'Home',
     libIcon: <MaterialCommunityIcons name='cash-multiple' color={'#033d60'} size={35} />,
   },
 
 ];
 
 type TopNavProp = {
-  Login: undefined;
+  Cash: undefined;
   Setting: undefined;
 };
 
 interface Props {
-  navigation: StackNavigationProp<TopNavProp, 'Login'>
+  navigation: StackNavigationProp<TopNavProp, 'Cash'>
 }
 
 const Cash = ({ navigation }: Props) => {
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <View style={cash.container}>
+    <>
       <Header
         navigation={navigation}
       />
-      <ExampleOne />
-
-      {
-        menus.map(({ icon, title, path, libIcon }: menuProps) => {
-          return (
-            <View style={cash.subBody}>
-              <TouchableOpacity
-                style={cash.buttonGrid}
-                // onPress={() => navigation.navigate('Login')}
-                onPress={() => navigation.navigate(path)}
-              >
-                <View
-                  style={cash.body}
-                >
-                  <View style={cash.buttonIcon}>
-                    <MaterialCommunityIcons name={icon} style={cash.icon} />
-                  </View>
-                  <View style={cash.buttonTitle}>
-                    <Text style={cash.titleGrid}>
-                      {title}
-                    </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-
+      <View style={cash.container}>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={modal.modal}>
+            <View style={modal.menuModal}>
+              <View style={modal.fecharModal}>
+          <Pressable
+            style={modal.menuButtonFechar}
+            onPress={() => setModalVisible(!modalVisible)}
+          >
+                {/* <Text style={modal.menuModalTitle}>Fechar</Text> */}
+                <Feather name="x" color={'#000000'} size={32} />
+          </Pressable>
+              </View>
+              <FormUser />
             </View>
-          );
-        })
-      }
+        </View>
 
+      </Modal>
 
+        {
+          menus.map(({ icon, title, path, libIcon }: menuProps) => {
+            return (
+              <>
+              <TouchableOpacity style={cash.subBody} onPress={() => setModalVisible(true)}>
+                <Card.Title
+                  title={title}
+                  left={(props) => <Avatar.Icon {...props} icon={icon} />}
+                  right={(props) => <IconButton {...props} icon="chevron-right"  />}
+                />
+              </TouchableOpacity>
+              <Divider />
+              </>
+            );
+          })
+        }
+        <Divider />
 
-      <View style={{ marginTop: 100, }}>
+        <ExampleOne />
 
-        <Footer
-          navigation={navigation}
-        />
       </View>
-    </View>
+      <Footer
+        navigation={navigation}
+      />
+    </>
   );
 };
 

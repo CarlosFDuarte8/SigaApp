@@ -11,3 +11,4 @@ export {itensMenu} from './componentsStyles/itensMenuStyle';
 export {listUsers} from './componentsStyles/listUsersStyle';
 export {menu} from './componentsStyles/menuStyle';
 export {web} from './componentsStyles/webStyle';
+export {modal} from './componentsStyles/modalStyle';

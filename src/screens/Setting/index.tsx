@@ -3,7 +3,7 @@ import { Button, Text, View, TouchableOpacity } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Feather, MaterialIcons } from '@expo/vector-icons';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer'
 import Login from './Users';
@@ -19,18 +19,17 @@ interface Props {
 
 const Setting = ({ navigation }: Props) => {
     return (
+      <>
+          <Header
+              navigation={navigation}
+          />
         <View style={{
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
+            alignItems: 'center',
             flex: 1,
             backgroundColor: 'white',
         }}>
-            <Header
-                navigation={navigation}
-            />
             <View style={{
-                justifyContent: 'flex-start',
-                // flex: 1,
-                // backgroundColor: 'white',
                 flexDirection: 'row'
             }}>
                 {/* 1 */}
@@ -100,7 +99,7 @@ const Setting = ({ navigation }: Props) => {
                             marginBottom: 10,
                             marginVertical: 50
                         }}
-                        onPress={() => navigation.navigate('Setting')}
+                        onPress={() => navigation.navigate('Cash')}
                     >
                         <View style={{
                             backgroundColor: '#f4f5f8',
@@ -111,7 +110,7 @@ const Setting = ({ navigation }: Props) => {
                             borderTopLeftRadius: 20,
                             borderTopRightRadius: 20,
                         }}>
-                            <SimpleLineIcons name="key" color={'#033d60'} size={55} />
+                            <MaterialIcons name="money" color={'#033d60'} size={55} />
                         </View>
                         <View style={{
                             backgroundColor: '#ccc',
@@ -123,7 +122,7 @@ const Setting = ({ navigation }: Props) => {
                             borderBottomRightRadius: 20,
                         }}>
                             <Text style={{ color: '#033d60', alignItems: 'center' }}>
-                                Altera Senha
+                                Tesoraria
                             </Text>
                         </View>
                     </TouchableOpacity>
@@ -142,7 +141,7 @@ const Setting = ({ navigation }: Props) => {
                             marginBottom: 10,
                             marginVertical: 50
                         }}
-                        onPress={() => navigation.navigate('Setting')}
+                        onPress={() => navigation.navigate('AppVersion')}
                     >
                         <View style={{
                             backgroundColor: '#f4f5f8',
@@ -451,13 +450,12 @@ const Setting = ({ navigation }: Props) => {
                     </TouchableOpacity>
                 </View>
             </View>
-{/* <Login /> */}
-            <View style={{ marginTop: 100, }}>
+            
+        </View>
                 <Footer
                     navigation={navigation}
                 />
-            </View>
-        </View>
+        </>
     );
 };
 
