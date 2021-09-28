@@ -1,13 +1,13 @@
-import React from 'react';
-import { Button, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import React, {useState} from 'react';
+import { Button, Text, View, TouchableOpacity, TextInput, Modal, Pressable, Alert, } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Card, Avatar, IconButton, Divider } from 'react-native-paper';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Table, Row, Rows } from 'react-native-table-component';
+import { Feather, MaterialCommunityIcons, SimpleLineIcons } from "@expo/vector-icons";
 import ExampleOne from './Table';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { cash } from '../../globalStyles/styles';
+import { cash, modal } from '../../globalStyles/styles';
+import FormUser from '../Setting/User/FormUser';
 
 
 interface menuProps {
@@ -67,15 +67,17 @@ const menus: menuProps[] = [
 ];
 
 type TopNavProp = {
-  Login: undefined;
+  Cash: undefined;
   Setting: undefined;
 };
 
 interface Props {
-  navigation: StackNavigationProp<TopNavProp, 'Login'>
+  navigation: StackNavigationProp<TopNavProp, 'Cash'>
 }
 
 const Cash = ({ navigation }: Props) => {
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
@@ -83,12 +85,37 @@ const Cash = ({ navigation }: Props) => {
         navigation={navigation}
       />
       <View style={cash.container}>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={modal.modal}>
+            <View style={modal.menuModal}>
+              <View style={modal.fecharModal}>
+          <Pressable
+            style={modal.menuButtonFechar}
+            onPress={() => setModalVisible(!modalVisible)}
+          >
+                {/* <Text style={modal.menuModalTitle}>Fechar</Text> */}
+                <Feather name="x" color={'#000000'} size={32} />
+          </Pressable>
+              </View>
+              <FormUser />
+            </View>
+        </View>
+
+      </Modal>
 
         {
           menus.map(({ icon, title, path, libIcon }: menuProps) => {
             return (
               <>
-              <TouchableOpacity style={cash.subBody} onPress={() => navigation.navigate(path)}>
+              <TouchableOpacity style={cash.subBody} onPress={() => setModalVisible(true)}>
                 <Card.Title
                   title={title}
                   left={(props) => <Avatar.Icon {...props} icon={icon} />}
